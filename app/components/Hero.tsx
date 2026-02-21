@@ -28,9 +28,9 @@ export default function Hero() {
         gradientStart="#2563eb"
         gradientEnd="#4f46e5"
       />
-      <div className="relative z-10 px-24">
+      <div className="relative z-10 px-5 sm:px-12">
         <motion.div initial="hidden" animate="visible" variants={textVariants}>
-          <div className="flex h-screen flex-col sm:justify-center">
+          <div className="flex h-screen flex-col justify-center">
             <div className="text-lg text-slate-300 font-medium tracking-tight">Hi, I am</div>
             <div className="text-7xl font-medium tracking-tight">Yoshifumi Suzuki</div>
             <div className="mt-4 max-w-xl leading-relaxed text-slate-300">
@@ -38,7 +38,7 @@ export default function Hero() {
               in the JavaScript ecosystem while staying open and enthusiastic about other
               technologies.
             </div>
-            <div className="flex mt-4 gap-x-4 max-w-xl">
+            <div className="flex flex-wrap mt-4 gap-2 sm:gap-x-4 max-w-xl">
               {socialUrls.map((url) => (
                 <Button
                   className="cursor-pointer border  hover:bg-white hover:text-black"
@@ -58,7 +58,7 @@ export default function Hero() {
                 target="_blank"
               >
                 <Button
-                  className="min-w-50 cursor-pointer border hover:bg-white hover:text-black"
+                  className="sm:min-w-40 cursor-pointer border hover:bg-white hover:text-black"
                   variant="ghost"
                 >
                   <FileUser width={24} height={24} className="size-6!" />
