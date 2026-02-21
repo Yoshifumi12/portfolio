@@ -1,0 +1,9 @@
+.gitignore
+.prettierignore
+*.jpg
+*.png
+*.ico
+*.woff
+.husky
+node_modules
+package-lock.json
