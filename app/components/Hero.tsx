@@ -30,7 +30,7 @@ export default function Hero() {
       />
       <div className="relative z-10 px-5 sm:px-12">
         <motion.div initial="hidden" animate="visible" variants={textVariants}>
-          <div className="flex h-screen flex-col justify-center">
+          <div className="flex min-h-[calc(100vh-4rem)] flex-col justify-center">
             <div className="text-lg text-slate-300 font-medium tracking-tight">Hi, I am</div>
             <div className="text-7xl font-medium tracking-tight">Yoshifumi Suzuki</div>
             <div className="mt-4 max-w-xl leading-relaxed text-slate-300">
