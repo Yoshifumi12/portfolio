@@ -105,9 +105,14 @@ export function WaveGridBackground({
     // Get wave height at a point
     const getWaveHeight = (x: number, z: number, t: number) => {
       return (
-        Math.sin(x * 0.02 + t) * Math.cos(z * 0.02 + t * 0.8) * waveHeight +
-        Math.sin(x * 0.01 - t * 0.5 + z * 0.015) * waveHeight * 0.5 +
-        Math.sin((x + z) * 0.008 + t * 1.2) * waveHeight * 0.3
+        Math.sin(x * 0.015 + t * 1.2) * waveHeight * 0.6 +
+        Math.sin(z * 0.018 + t * 0.9) * waveHeight * 0.5 +
+        Math.sin(x * 0.023 - t * 1.5 + 1.2) * Math.cos(z * 0.025 + t * 0.7) * waveHeight * 0.4 +
+        Math.sin((x + z) * 0.012 + t * 0.5) * waveHeight * 0.35 +
+        Math.sin(x * 0.035 + t * 0.8 + 2.3) * Math.sin(z * 0.032 - t * 0.6) * waveHeight * 0.3 +
+        Math.sin(x * 0.045 + Math.sin(z * 0.04) * 2 + t * 1.1) * waveHeight * 0.25 +
+        Math.sin(x * 0.05 + z * 0.05 + t * 2) * waveHeight * 0.2 +
+        Math.sin((x - z) * 0.03 + t * 1.8) * waveHeight * 0.2
       )
     }
 

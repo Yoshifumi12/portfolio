@@ -28,7 +28,7 @@ export default function Hero() {
       <motion.div initial="hidden" animate="visible" variants={backgroundVariants}>
         <WaveGridBackground
           className="absolute inset-0 z-0"
-          gridSize={15}
+          gridSize={10}
           waveHeight={150}
           waveSpeed={0.5}
           gradientStart="#2563eb"
