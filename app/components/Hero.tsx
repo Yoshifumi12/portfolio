@@ -1,43 +1,28 @@
 'use client'
 import { Button } from '@/components/ui/button'
-import { WaveGridBackground } from '@/components/ui/wave-grid'
 import { FileUser } from 'lucide-react'
 import Link from 'next/link'
 import { SocialIcon } from 'react-social-icons'
 import { motion } from 'framer-motion'
+import Section from './Section'
+import { Window } from '@/components/ui/window'
+import { socialUrls } from '../constants/socialUrls'
 
 const textVariants = {
   hidden: { opacity: 0, y: -10 },
   visible: { opacity: 1, y: 0, transition: { delay: 1.5, duration: 1.5 } },
 }
 
-const backgroundVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { delay: 0.5, duration: 1 } },
-}
-
-const socialUrls = [
-  'https://github.com/Yoshifumi12',
-  'https://www.linkedin.com/in/yoshifumi-suzuki-780310264/',
-  'mailto:yoshifumisuzuki.ys@gmail.com',
-]
-
 export default function Hero() {
   return (
-    <div className="relative">
-      <motion.div initial="hidden" animate="visible" variants={backgroundVariants}>
-        <WaveGridBackground
-          className="absolute inset-0 z-0"
-          gridSize={10}
-          waveHeight={150}
-          waveSpeed={0.5}
-          gradientStart="#2563eb"
-          gradientEnd="#4f46e5"
-        />
-      </motion.div>
-      <div className="relative z-10 px-5 sm:px-12">
+    <Section>
+      <Window
+        title="profile"
+        size={{ width: 510, height: 380 }}
+        defaultPosition={{ x: 30, y: 200 }}
+      >
         <motion.div initial="hidden" animate="visible" variants={textVariants}>
-          <div className="flex min-h-[calc(100vh-74px)] flex-col justify-center">
+          <div className="flex flex-col px-5 pt-1">
             <div className="text-lg text-slate-300 font-medium tracking-tight">Hi, I am</div>
             <div className="text-7xl font-medium tracking-tight">Yoshifumi Suzuki</div>
             <div className="mt-4 max-w-xl leading-relaxed text-slate-300">
@@ -79,7 +64,7 @@ export default function Hero() {
             </div>
           </div>
         </motion.div>
-      </div>
-    </div>
+      </Window>
+    </Section>
   )
 }
