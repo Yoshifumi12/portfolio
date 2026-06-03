@@ -6,7 +6,7 @@ import { SocialIcon } from 'react-social-icons'
 import { motion } from 'framer-motion'
 import Section from './Section'
 import { Window } from '@/components/ui/window'
-import { socialUrls } from '../constants/socialUrls'
+import { heroData } from '../constants/heroData'
 
 const textVariants = {
   hidden: { opacity: 0, y: -10 },
@@ -18,20 +18,19 @@ export default function Hero() {
     <Section>
       <Window
         title="profile"
-        size={{ width: 510, height: 380 }}
+        size={{ width: 630, height: 470 }}
         defaultPosition={{ x: 30, y: 200 }}
       >
         <motion.div initial="hidden" animate="visible" variants={textVariants}>
           <div className="flex flex-col px-5 pt-1">
             <div className="text-lg text-slate-300 font-medium tracking-tight">Hi, I am</div>
-            <div className="text-7xl font-medium tracking-tight">Yoshifumi Suzuki</div>
-            <div className="mt-4 max-w-xl leading-relaxed text-slate-300">
-              I am a curious and dedicated problem-solver who enjoys continuous learning, thriving
-              in the JavaScript ecosystem while staying open and enthusiastic about other
-              technologies.
+            <div className="text-7xl font-medium tracking-tight">{heroData.name}</div>
+            <div className="mt-4 max-w-xl leading-relaxed text-slate-300 whitespace-pre-line">
+
+              {heroData.description}
             </div>
             <div className="flex flex-wrap mt-4 gap-2 sm:gap-x-4 max-w-xl">
-              {socialUrls.map((url) => (
+              {heroData.socialUrls.map((url) => (
                 <Button
                   className="cursor-pointer border  hover:bg-white hover:text-black"
                   key={url}
@@ -47,11 +46,7 @@ export default function Hero() {
                   />
                 </Button>
               ))}
-              <Link
-                href="https://drive.google.com/file/d/12jmZ48P1xITUnbGQqG1SWlHasqqFldJj/view?usp=sharing"
-                target="_blank"
-                tabIndex={-1}
-              >
+              <Link href={heroData.resumeUrl} target="_blank" tabIndex={-1}>
                 <Button
                   className="sm:min-w-40 min-w-67 cursor-pointer border hover:bg-white hover:text-black"
                   variant="ghost"
