@@ -18,7 +18,7 @@ export default function Hero() {
     <Section>
       <Window
         title="profile"
-        size={{ width: 630, height: 470 }}
+        size={{ width: 630, height: 390 }}
         defaultPosition={{ x: 30, y: 200 }}
       >
         <motion.div initial="hidden" animate="visible" variants={textVariants}>

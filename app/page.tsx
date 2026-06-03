@@ -1,7 +1,6 @@
 'use client'
 import Experience from './components/Experience'
 import Hero from './components/Hero'
-import Projects from './components/Projects'
 import { WaveGridBackground } from '@/components/ui/wave-grid'
 import { motion } from 'framer-motion'
 
@@ -25,7 +24,6 @@ export default function Home() {
       </motion.div>
       <Hero />
       <Experience />
-      <Projects />
     </div>
   )
 }

@@ -1,11 +1,8 @@
 export const heroData = {
   name: 'Yoshifumi Suzuki',
   description: `I write code for a living. Full-stack, mostly in the JavaScript ecosystem.
-  
   Currently building and shipping features under StackTrek. 
-  Before that: an internship with Kachick, and experimenting with school projects.
-  
-  Outside work? Reading, watching movies, or playing video games.
+  Before that: an internship with Kachick, and experimenting with school projects. Outside work? Reading, watching movies, or playing video games.
 
   Happy to connect.`,
   socialUrls: [

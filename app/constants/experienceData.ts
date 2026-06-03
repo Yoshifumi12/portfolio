@@ -3,7 +3,7 @@ export const experienceData = [
     windowTitle: 'experience',
     defaultPosition: { x: 80, y: 60 },
     size: { width: 570, height: 375 },
-    title: 'Full Stack Junior Software Engineer',
+    title: 'Junior Full Stack Software Engineer',
     company: 'StackTrek Enterprise Inc.',
     description: [
       'Developed and maintained production web applications with a focus on quality, performance, and scalability.',
@@ -49,7 +49,7 @@ export const experienceData = [
     ],
   },
   {
-    windowTitle: 'experience-1',
+    windowTitle: 'experience',
     defaultPosition: { x: 800, y: 380 },
     size: { width: 570, height: 380 },
     title: 'Full Stack Software Engineer Intern',
