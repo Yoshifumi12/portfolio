@@ -12,8 +12,6 @@ interface WindowProps {
   bgColor?: string
   className?: string
   fixed?: boolean
-  onClose?: () => void
-  onMinimize?: () => void
 }
 
 export function Window({
@@ -24,12 +22,9 @@ export function Window({
   bgColor = '',
   className = '',
   fixed = false,
-  onClose,
-  onMinimize,
 }: WindowProps) {
   const [position, setPosition] = useState(defaultPosition)
   const [isDragging, setIsDragging] = useState(false)
-  const [hidden, setHidden] = useState(false)
   const dragStart = useRef({ x: 0, y: 0 })
   const containerRef = useRef<HTMLDivElement>(null)
   const scrollRef = useRef<HTMLDivElement>(null)
@@ -97,7 +92,7 @@ export function Window({
     e.currentTarget.setPointerCapture(e.pointerId)
   }
 
-  const handlePointerMove = (e: PointerEvent<HTMLDivElement>) => {
+  const handlePointerMove = (e: globalThis.PointerEvent) => {
     if (!isDragging) return
 
     e.preventDefault()
@@ -115,10 +110,10 @@ export function Window({
 
   useEffect(() => {
     if (isDragging) {
-      window.addEventListener('pointermove', handlePointerMove as any)
+      window.addEventListener('pointermove', handlePointerMove)
       window.addEventListener('pointerup', handlePointerUp)
       return () => {
-        window.removeEventListener('pointermove', handlePointerMove as any)
+        window.removeEventListener('pointermove', handlePointerMove)
         window.removeEventListener('pointerup', handlePointerUp)
       }
     }
@@ -140,7 +135,7 @@ export function Window({
     >
       <div
         ref={containerRef}
-        className={`${hidden ? 'hidden' : ''} relative h-full w-full overflow-hidden rounded-xl border border-slate-700/70 ${className} flex flex-col`}
+        className={` relative h-full w-full overflow-hidden rounded-xl border border-slate-700/70 ${className} flex flex-col`}
       >
         <div
           onPointerDown={handlePointerDownMove}
@@ -149,17 +144,11 @@ export function Window({
           <div className="flex items-center gap-2">
             <button
               type="button"
-              onClick={() => {
-                setHidden(true)
-              }}
               className="flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-red-600 hover:text-red-800 cursor-pointer"
             >
               <X size={15} />
             </button>
-            <button
-              onClick={() => setHidden(true)}
-              className="flex h-5 w-5 rounded-full bg-amber-500/90 text-amber-500/9 hover:text-amber-700 justify-center items-center cursor-pointer"
-            >
+            <button className="flex h-5 w-5 rounded-full bg-amber-500/90 text-amber-500/9 hover:text-amber-700 justify-center items-center cursor-pointer">
               <Minus size={15} />
             </button>
             <button className="flex h-5 w-5 rounded-full bg-green-600 text-green-600 hover:text-green-800 justify-center items-center cursor-pointer">
