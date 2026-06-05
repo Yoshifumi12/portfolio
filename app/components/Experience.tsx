@@ -37,7 +37,7 @@ export default function Experience() {
                   <div className="flex flex-wrap gap-2">
                     {experience.techStack.map((tech, index) => (
                       <Badge key={index} className="text-white">
-                        <Image src={tech.icon} alt={tech.name} width={24} height={24} />
+                        <Image src={tech.icon} alt={tech.name} width={24} height={24} style={tech.style} />
                         {tech.name}
                       </Badge>
                     ))}
