@@ -3,6 +3,8 @@ import Experience from './components/Experience'
 import Hero from './components/Hero'
 import { WaveGridBackground } from '@/components/ui/wave-grid'
 import { motion } from 'framer-motion'
+import { experienceData } from './constants/experienceData'
+import { projectsData } from './constants/projectsData'
 
 const backgroundVariants = {
   hidden: { opacity: 0 },
@@ -23,7 +25,8 @@ export default function Home() {
         />
       </motion.div>
       <Hero />
-      <Experience />
+      <Experience experienceData={experienceData} />
+      <Experience experienceData={projectsData} />
     </div>
   )
 }
