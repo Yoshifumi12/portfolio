@@ -1,6 +1,6 @@
 'use client'
 
-import { House, Minimize2, X } from 'lucide-react'
+import { ChevronDown, House, Minimize2, X } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 
@@ -67,15 +67,7 @@ export default function Container({ children }: { children: React.ReactNode }) {
 
             {showScrollIndicator && (
               <div className="pointer-events-none absolute bottom-5 left-1/2 -translate-x-1/2 animate-bounce z-10">
-                <svg
-                  className="h-7 w-7 text-slate-300/90 drop-shadow-md"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2.5}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
+                <ChevronDown size={32} className="text-slate-400/80" />
               </div>
             )}
           </div>

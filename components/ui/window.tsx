@@ -1,6 +1,6 @@
 'use client'
 
-import { Maximize2, Minus, X } from 'lucide-react'
+import { ChevronDown, Maximize2, Minus, X } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useState, useRef, useEffect, type PointerEvent } from 'react'
 
@@ -171,16 +171,8 @@ export function Window({
             {children}
 
             {showScrollIndicator && (
-              <div className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 animate-bounce">
-                <svg
-                  className="h-6 w-6 text-slate-400/80"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
+              <div className="pointer-events-none absolute bottom-1 left-1/2 -translate-x-1/2 animate-bounce">
+                <ChevronDown size={24} className="text-slate-400/80" />
               </div>
             )}
           </div>
