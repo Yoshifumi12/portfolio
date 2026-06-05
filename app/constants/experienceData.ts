@@ -18,28 +18,28 @@ export const experienceData: experienceDataType[] = [
     badge: 'June 2025 - Present',
     techStack: [
       {
-        name: 'Next.js',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
-      },
-      {
         name: 'TypeScript',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
-      },
-      {
-        name: 'Prisma',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg',
       },
       {
         name: 'React',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
       },
       {
-        name: 'React Router',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/reactrouter/reactrouter-original.svg',
+        name: 'Next.js',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
       },
       {
         name: 'Tailwind CSS',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
+      },
+      {
+        name: 'React Router',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/reactrouter/reactrouter-original.svg',
+      },
+      {
+        name: 'Prisma',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg',
       },
       {
         name: 'Hono',
