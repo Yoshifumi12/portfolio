@@ -23,9 +23,11 @@ export default function Experience({ experienceData }: { experienceData: experie
                   <h1 className="text-xl font-bold">{experience.title}</h1>
                   <div className="text-slate-300 font-medium">{experience.company}</div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Badge className="bg-gray-700">{experience.badge}</Badge>
-                </div>
+                {experience.badge && (
+                  <div className="flex items-center gap-2">
+                    <Badge className="bg-gray-700">{experience.badge}</Badge>
+                  </div>
+                )}
               </div>
               <div className="p-6 pt-0 space-y-6">
                 <ul className="list-disc text-slate-300">

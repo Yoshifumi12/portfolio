@@ -41,7 +41,7 @@ export const projectsData: experienceDataType[] = [
   },
   {
     windowTitle: 'school-project',
-    defaultPosition: { x: 800, y: 380 },
+    defaultPosition: { x: 800, y: 60 },
     size: { width: 640, height: 357 },
     title: 'Crowdfunding & Content Management Platform for Global Shapers - Iloilo',
     company: 'University Project - Central Philippine University',
@@ -81,6 +81,50 @@ export const projectsData: experienceDataType[] = [
       {
         name: 'PostgreSQL',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
+      },
+      {
+        name: 'Github',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg',
+        style: { filter: 'invert(100%) sepia(100%) grayscale(100%)' },
+      },
+    ],
+  },
+  {
+    windowTitle: 'personal-project',
+    defaultPosition: { x: 450, y: 550 },
+    size: { width: 550, height: 281 },
+    title: 'Portfolio Website',
+    company: '',
+    description: [
+      'Designed and built a fully responsive personal portfolio website to showcase projects, skills, and professional experience.',
+      'Implemented interactive UI elements and smooth navigation to enhance user experience.',
+      'Deployed and maintained the live site with ongoing updates based on feedback and evolving project needs.',
+    ],
+    badge: '',
+    techStack: [
+      {
+        name: 'TypeScript',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+      },
+      {
+        name: 'React',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+      },
+      {
+        name: 'Next.js',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
+      },
+      {
+        name: 'Tailwind CSS',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
+      },
+      {
+        name: 'Vitest',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitest/vitest-original.svg',
+      },
+      {
+        name: 'Jest',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jest/jest-plain.svg',
       },
       {
         name: 'Github',
