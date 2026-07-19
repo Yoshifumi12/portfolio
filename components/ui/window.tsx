@@ -1,8 +1,9 @@
 'use client'
 
 import { ChevronDown, Maximize2, Minus, X } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { useState, useRef, useEffect, type PointerEvent } from 'react'
+import { useScrollIndicator } from '@/app/hooks/useScrollIndicator'
 
 interface WindowProps {
   children: React.ReactNode
@@ -25,63 +26,56 @@ export function Window({
 }: WindowProps) {
   const [position, setPosition] = useState(defaultPosition)
   const [isDragging, setIsDragging] = useState(false)
+  const [isDesktop, setIsDesktop] = useState(true)
   const dragStart = useRef({ x: 0, y: 0 })
   const containerRef = useRef<HTMLDivElement>(null)
-  const scrollRef = useRef<HTMLDivElement>(null)
   const parentRef = useRef<HTMLElement | null>(null)
 
-  const [showScrollIndicator, setShowScrollIndicator] = useState(false)
-
-  const updateConstraints = () => {
-    if (containerRef.current) {
-      parentRef.current = containerRef.current.closest('.relative.z-10')
-    }
-  }
-
-  const checkScrollPosition = () => {
-    if (!scrollRef.current) return
-    const { scrollTop, scrollHeight, clientHeight } = scrollRef.current
-    setShowScrollIndicator(scrollTop + clientHeight < scrollHeight - 1)
-  }
+  const { scrollRef, showScrollIndicator } = useScrollIndicator<HTMLDivElement>({
+    threshold: 1,
+    deps: [children],
+  })
 
   useEffect(() => {
-    updateConstraints()
-    window.addEventListener('resize', updateConstraints)
-    return () => window.removeEventListener('resize', updateConstraints)
+    const mediaQuery = window.matchMedia('(min-width: 768px)')
+    const update = () => setIsDesktop(mediaQuery.matches)
+    update()
+    mediaQuery.addEventListener('change', update)
+    return () => mediaQuery.removeEventListener('change', update)
   }, [])
-
-  useEffect(() => {
-    const el = scrollRef.current
-    if (!el) return
-
-    checkScrollPosition()
-    el.addEventListener('scroll', checkScrollPosition)
-    window.addEventListener('resize', checkScrollPosition)
-
-    return () => {
-      el.removeEventListener('scroll', checkScrollPosition)
-      window.removeEventListener('resize', checkScrollPosition)
-    }
-  }, [children])
 
   const constrainPosition = (x: number, y: number) => {
     if (!parentRef.current || !containerRef.current) return { x, y }
 
     const parentRect = parentRef.current.getBoundingClientRect()
 
-    const minX = 0
-    const maxX = parentRect.width - size.width
-    const minY = 0
-    const maxY = parentRect.height - size.height
+    const maxX = Math.max(0, parentRect.width - size.width)
+    const maxY = Math.max(0, parentRect.height - size.height)
 
     return {
-      x: Math.min(Math.max(x, minX), maxX),
-      y: Math.min(Math.max(y, minY), maxY),
+      x: Math.min(Math.max(x, 0), maxX),
+      y: Math.min(Math.max(y, 0), maxY),
     }
   }
 
+  const updateConstraints = () => {
+    if (containerRef.current) {
+      parentRef.current = containerRef.current.closest('.relative.z-10')
+    }
+    setPosition((p) => constrainPosition(p.x, p.y))
+  }
+
+  useEffect(() => {
+    const raf = requestAnimationFrame(updateConstraints)
+    window.addEventListener('resize', updateConstraints)
+    return () => {
+      cancelAnimationFrame(raf)
+      window.removeEventListener('resize', updateConstraints)
+    }
+  }, [])
+
   const handlePointerDownMove = (e: PointerEvent<HTMLDivElement>) => {
-    if (fixed) return
+    if (fixed || !isDesktop) return
     if ((e.target as HTMLElement).closest('button')) return
     updateConstraints()
     setIsDragging(true)
@@ -124,14 +118,22 @@ export function Window({
       initial={{ opacity: 0, scale: 0.94, y: 40 }}
       animate={{ opacity: 1, scale: 1, y: 0, transition: { delay: 1, duration: 1.5 } }}
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      style={{
-        position: 'absolute',
-        left: position.x,
-        top: position.y,
-        width: size.width,
-        height: size.height,
-      }}
-      className="select-none"
+      style={
+        isDesktop
+          ? {
+              position: 'absolute',
+              left: position.x,
+              top: position.y,
+              width: size.width,
+              height: size.height,
+            }
+          : {
+              position: 'relative',
+              width: '100%',
+              maxWidth: size.width,
+            }
+      }
+      className={isDesktop ? 'select-none' : 'select-none mx-auto my-3'}
     >
       <div
         ref={containerRef}
@@ -139,21 +141,20 @@ export function Window({
       >
         <div
           onPointerDown={handlePointerDownMove}
-          className="flex h-10 shrink-0 cursor-move items-center justify-between gap-3 bg-neutral-800 px-3"
+          className={`flex h-10 shrink-0 items-center justify-between gap-3 bg-neutral-800 px-3 ${
+            isDesktop ? 'cursor-move' : ''
+          }`}
         >
-          <div className="flex items-center gap-2">
-            <button
-              type="button"
-              className="flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-red-600 hover:text-red-800 cursor-pointer"
-            >
+          <div className="flex items-center gap-2" aria-hidden="true">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-red-600 text-red-600">
               <X size={15} />
-            </button>
-            <button className="flex h-5 w-5 rounded-full bg-amber-500/90 text-amber-500/9 hover:text-amber-700 justify-center items-center cursor-pointer">
+            </span>
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-amber-500/90 text-amber-500/90">
               <Minus size={15} />
-            </button>
-            <button className="flex h-5 w-5 rounded-full bg-green-600 text-green-600 hover:text-green-800 justify-center items-center cursor-pointer">
+            </span>
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-green-600 text-green-600">
               <Maximize2 size={15} />
-            </button>
+            </span>
           </div>
 
           <div className="flex items-center gap-2 text-sm font-medium text-slate-300 pointer-events-none">

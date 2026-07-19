@@ -20,7 +20,7 @@ vi.mock('next/link', () => ({
   ),
 }))
 
-vi.mock('framer-motion', () => ({
+vi.mock('motion/react', () => ({
   motion: {
     div: ({ children, ...props }: { children: React.ReactNode; [key: string]: unknown }) => (
       <div {...props}>{children}</div>

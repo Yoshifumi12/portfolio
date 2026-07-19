@@ -1,8 +1,8 @@
 'use client'
 
 import { ChevronDown, House, Minimize2, X } from 'lucide-react'
-import { motion } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
+import { motion } from 'motion/react'
+import { useScrollIndicator } from '../hooks/useScrollIndicator'
 
 const containerVariants = {
   hidden: { opacity: 0, x: 60 },
@@ -10,44 +10,22 @@ const containerVariants = {
 }
 
 export default function Container({ children }: { children: React.ReactNode }) {
-  const [showScrollIndicator, setShowScrollIndicator] = useState(false)
-  const scrollRef = useRef<HTMLDivElement>(null)
-
-  const checkScrollPosition = () => {
-    if (!scrollRef.current) return
-    const { scrollTop, scrollHeight, clientHeight } = scrollRef.current
-    setShowScrollIndicator(scrollTop + clientHeight < scrollHeight - 3)
-  }
-
-  useEffect(() => {
-    const el = scrollRef.current
-    if (!el) return
-
-    checkScrollPosition()
-
-    el.addEventListener('scroll', checkScrollPosition)
-    window.addEventListener('resize', checkScrollPosition)
-
-    const timer = setTimeout(checkScrollPosition, 300)
-
-    return () => {
-      el.removeEventListener('scroll', checkScrollPosition)
-      window.removeEventListener('resize', checkScrollPosition)
-      clearTimeout(timer)
-    }
-  }, [children])
+  const { scrollRef, showScrollIndicator } = useScrollIndicator<HTMLDivElement>({
+    threshold: 3,
+    deps: [children],
+  })
 
   return (
     <motion.div initial="hidden" animate="visible" variants={containerVariants}>
       <div className="relative flex h-dvh overflow-hidden p-4">
         <div className="relative overflow-hidden rounded-lg border border-slate-600 transition-all duration-700 size-full bg-neutral-800 flex flex-col">
           <div className="flex gap-2 p-2 shrink-0 items-center relative">
-            <div className="flex gap-2 z-10">
-              <div className="bg-red-600 text-red-600 hover:text-red-800 rounded-full w-5 h-5 cursor-pointer flex items-center justify-center">
+            <div className="flex gap-2 z-10" aria-hidden="true">
+              <div className="bg-red-600 text-red-600 rounded-full w-5 h-5 flex items-center justify-center">
                 <X size={15} />
               </div>
               <div className="bg-slate-700 rounded-full w-5 h-5" />
-              <div className="bg-green-600 text-green-600 hover:text-green-800 rounded-full w-5 h-5 cursor-pointer overflow-hidden flex items-center justify-center">
+              <div className="bg-green-600 text-green-600 rounded-full w-5 h-5 overflow-hidden flex items-center justify-center">
                 <Minimize2 size={15} className="rotate-90" />
               </div>
             </div>

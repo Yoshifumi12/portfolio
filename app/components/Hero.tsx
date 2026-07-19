@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button'
 import { FileUser } from 'lucide-react'
 import Link from 'next/link'
 import { SocialIcon } from 'react-social-icons'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import Section from './Section'
 import { Window } from '@/components/ui/window'
 import { heroData } from '../constants/heroData'
@@ -24,16 +24,16 @@ export default function Hero() {
         <motion.div initial="hidden" animate="visible" variants={textVariants}>
           <div className="flex flex-col px-5 pt-1">
             <div className="text-lg text-slate-300 font-medium tracking-tight">Hi, I am</div>
-            <div className="text-7xl font-medium tracking-tight">{heroData.name}</div>
+            <h1 className="text-5xl sm:text-7xl font-medium tracking-tight">{heroData.name}</h1>
             <div className="mt-4 max-w-xl leading-relaxed text-slate-300 whitespace-pre-line">
               {heroData.description}
             </div>
             <div className="flex flex-wrap mt-4 gap-2 sm:gap-x-4 max-w-xl">
               {heroData.socialUrls.map((url) => (
                 <Button
-                  className="cursor-pointer border  hover:bg-white hover:text-black"
+                  asChild
+                  className="cursor-pointer border hover:bg-white hover:text-black"
                   key={url}
-                  tabIndex={-1}
                 >
                   <SocialIcon
                     fgColor="currentColor"
@@ -41,20 +41,20 @@ export default function Hero() {
                     borderRadius="0"
                     bgColor="transparent"
                     target="_blank"
-                    tabIndex={-1}
+                    style={{ width: '3rem', height: '2.25rem' }}
                   />
                 </Button>
               ))}
-              <Link href={heroData.resumeUrl} target="_blank" tabIndex={-1}>
-                <Button
-                  className="sm:min-w-40 min-w-67 cursor-pointer border hover:bg-white hover:text-black"
-                  variant="ghost"
-                  tabIndex={-1}
-                >
+              <Button
+                asChild
+                className="sm:min-w-40 min-w-67 cursor-pointer border hover:bg-white hover:text-black"
+                variant="ghost"
+              >
+                <Link href={heroData.resumeUrl} target="_blank">
                   <FileUser width={24} height={24} className="size-6!" />
                   Resume
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
         </motion.div>

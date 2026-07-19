@@ -24,7 +24,7 @@ vi.mock('@/components/ui/wave-grid', () => ({
   ),
 }))
 
-vi.mock('framer-motion', () => ({
+vi.mock('motion/react', () => ({
   motion: {
     div: ({
       children,

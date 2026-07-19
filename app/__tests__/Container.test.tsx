@@ -3,7 +3,7 @@ import { describe, it, expect, vi, afterEach } from 'vitest'
 import '@testing-library/jest-dom/vitest'
 import Container from '../components/Container'
 
-vi.mock('framer-motion', () => ({
+vi.mock('motion/react', () => ({
   motion: {
     div: ({ children, ...props }: { children: React.ReactNode; [key: string]: unknown }) => (
       <div {...props}>{children}</div>

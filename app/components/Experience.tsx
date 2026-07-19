@@ -8,9 +8,9 @@ import { experienceDataType } from '../types/experienceData'
 export default function Experience({ experienceData }: { experienceData: experienceDataType[] }) {
   return (
     <Section>
-      {experienceData.map((experience, index) => (
+      {experienceData.map((experience) => (
         <Window
-          key={index}
+          key={experience.title}
           title={experience.windowTitle}
           defaultPosition={experience.defaultPosition}
           size={experience.size}
@@ -20,7 +20,7 @@ export default function Experience({ experienceData }: { experienceData: experie
             <div className="flex flex-col space-y-1.5 p-2">
               <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
                 <div className="space-y-1">
-                  <h1 className="text-xl font-bold">{experience.title}</h1>
+                  <h2 className="text-xl font-bold">{experience.title}</h2>
                   <div className="text-slate-300 font-medium">{experience.company}</div>
                 </div>
                 <div className="flex items-center gap-2">
@@ -29,14 +29,14 @@ export default function Experience({ experienceData }: { experienceData: experie
               </div>
               <div className="p-6 pt-0 space-y-6">
                 <ul className="list-disc text-slate-300">
-                  {experience.description.map((point, index) => (
-                    <li key={index}>{point}</li>
+                  {experience.description.map((point) => (
+                    <li key={point}>{point}</li>
                   ))}
                 </ul>
                 {experience.techStack && (
                   <div className="flex flex-wrap gap-2">
-                    {experience.techStack.map((tech, index) => (
-                      <Badge key={index} className="text-white">
+                    {experience.techStack.map((tech) => (
+                      <Badge key={tech.name} className="text-white">
                         <Image
                           src={tech.icon}
                           alt={tech.name}
