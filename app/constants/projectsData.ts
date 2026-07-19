@@ -3,8 +3,8 @@ import { experienceDataType } from '../types/experienceData'
 export const projectsData: experienceDataType[] = [
   {
     windowTitle: 'school-project',
-    defaultPosition: { x: 80, y: 60 },
-    size: { width: 700, height: 450 },
+    defaultPosition: { x: 80, y: 40 },
+    size: { width: 700, height: 480 },
     title: 'Savy: AI-Powered Interview Practice Mobile Application',
     company: 'University Capstone Project - Central Philippine University',
     description: [
@@ -14,6 +14,20 @@ export const projectsData: experienceDataType[] = [
       'Delivered the final product with full SDLC documentation, including entity-relationship diagrams, use cases, and activity diagrams.',
     ],
     badge: 'March 2024 - January 2025',
+    links: [
+      {
+        label: 'GitHub',
+        url: 'https://github.com/Team-SYV/SYV',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg',
+        style: { filter: 'invert(100%) sepia(100%) grayscale(100%)' },
+      },
+      {
+        label: 'Screenshots',
+        url: 'https://drive.google.com/drive/folders/1yfKdwY4JBo78tP4WNLkMeYTIRnhO2I_V?usp=sharing',
+        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/googledrive.svg',
+        style: { filter: 'invert(100%) sepia(100%) grayscale(100%)' },
+      },
+    ],
     techStack: [
       {
         name: 'TypeScript',
@@ -47,7 +61,7 @@ export const projectsData: experienceDataType[] = [
   {
     windowTitle: 'school-project',
     defaultPosition: { x: 750, y: 380 },
-    size: { width: 640, height: 357 },
+    size: { width: 640, height: 387 },
     title: 'Crowdfunding & Content Management Platform for Global Shapers - Iloilo',
     company: 'University Project - Central Philippine University',
     description: [
@@ -58,6 +72,14 @@ export const projectsData: experienceDataType[] = [
       'Worked closely with the client to gather requirements and tailor solutions.',
     ],
     badge: 'September 2023 - October 2024',
+    links: [
+      {
+        label: 'Screenshots',
+        url: 'https://drive.google.com/drive/folders/1MhVRConClYoVpOh7-UDlwJCRJ6IztiBV?usp=sharing',
+        icon: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/googledrive.svg',
+        style: { filter: 'invert(100%) sepia(100%) grayscale(100%)' },
+      },
+    ],
     techStack: [
       {
         name: 'TypeScript',

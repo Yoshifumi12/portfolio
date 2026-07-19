@@ -2,6 +2,8 @@
 import Section from './Section'
 import { Window } from '@/components/ui/window'
 import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { ExternalLink } from 'lucide-react'
 import Image from 'next/image'
 import { experienceDataType } from '../types/experienceData'
 
@@ -22,6 +24,33 @@ export default function Experience({ experienceData }: { experienceData: experie
                 <div className="space-y-1">
                   <h2 className="text-xl font-bold">{experience.title}</h2>
                   <div className="text-slate-300 font-medium">{experience.company}</div>
+                  {experience.links && (
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {experience.links.map((link) => (
+                        <Button
+                          asChild
+                          key={link.url}
+                          size="xs"
+                          variant="ghost"
+                          className="cursor-pointer border hover:bg-white hover:text-black"
+                        >
+                          <a href={link.url} target="_blank" rel="noopener noreferrer">
+                            {link.icon && (
+                              <Image
+                                src={link.icon}
+                                alt=""
+                                width={14}
+                                height={14}
+                                style={link.style}
+                              />
+                            )}
+                            {link.label}
+                            <ExternalLink />
+                          </a>
+                        </Button>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <div className="flex items-center gap-2">
                   <Badge className="bg-gray-700">{experience.badge}</Badge>

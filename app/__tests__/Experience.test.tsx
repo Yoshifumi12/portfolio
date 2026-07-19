@@ -65,6 +65,10 @@ const mockExperienceData = [
       { name: 'React', icon: '/react-icon.png', style: {} },
       { name: 'TypeScript', icon: '/ts-icon.png', style: {} },
     ],
+    links: [
+      { label: 'GitHub', url: 'https://github.com/test/repo' },
+      { label: 'Screenshots', url: 'https://example.com/screenshots' },
+    ],
   },
   {
     windowTitle: 'Junior Developer',
@@ -146,6 +150,23 @@ describe('Experience', () => {
     const tsImages = screen.getAllByAltText('TypeScript')
     expect(tsImages.length).toBeGreaterThan(0)
     expect(tsImages[0]).toHaveAttribute('src', '/ts-icon.png')
+  })
+
+  it('renders project links when provided', () => {
+    render(<Experience experienceData={mockExperienceData} />)
+
+    const githubLink = screen.getAllByText('GitHub')[0].closest('a')
+    expect(githubLink).toHaveAttribute('href', 'https://github.com/test/repo')
+    expect(githubLink).toHaveAttribute('target', '_blank')
+
+    const screenshotsLink = screen.getAllByText('Screenshots')[0].closest('a')
+    expect(screenshotsLink).toHaveAttribute('href', 'https://example.com/screenshots')
+  })
+
+  it('does not render links section when links are absent', () => {
+    const { container } = render(<Experience experienceData={[mockExperienceData[1]]} />)
+
+    expect(container.querySelector('a')).toBeNull()
   })
 
   it('handles empty tech stack', () => {

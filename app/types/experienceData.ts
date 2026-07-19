@@ -11,4 +11,10 @@ export type experienceDataType = {
     icon: string
     style?: React.CSSProperties
   }[]
+  links?: {
+    label: string
+    url: string
+    icon?: string
+    style?: React.CSSProperties
+  }[]
 }
