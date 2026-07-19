@@ -26,7 +26,6 @@ export default function Hero() {
             <div className="text-lg text-slate-300 font-medium tracking-tight">Hi, I am</div>
             <div className="text-7xl font-medium tracking-tight">{heroData.name}</div>
             <div className="mt-4 max-w-xl leading-relaxed text-slate-300 whitespace-pre-line">
-
               {heroData.description}
             </div>
             <div className="flex flex-wrap mt-4 gap-2 sm:gap-x-4 max-w-xl">

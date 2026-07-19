@@ -4,16 +4,13 @@ export const experienceData: experienceDataType[] = [
   {
     windowTitle: 'experience',
     defaultPosition: { x: 80, y: 60 },
-    size: { width: 570, height: 400 },
-    title: 'Junior Full Stack Software Engineer',
+    size: { width: 570, height: 350 },
+    title: 'Full Stack Junior Software Engineer',
     company: 'StackTrek Enterprise Inc.',
     description: [
-      'Developed and maintained production web applications with a focus on quality, performance, and scalability.',
-      'Collaborated cross-functionally with teams to deliver features on time and efficiently.',
-      'Participated in code reviews and wrote clean, documented code following best practices.',
-      'Debugged and fixed issues; conducted testing/QA to meet requirements.',
-      'Improved and optimized existing systems for better efficiency and maintainability.',
-      'Researched and created proof of concepts for several projects.',
+      'Deliver features end-to-end across 4 production web applications — 2 internal company products and 2 client projects — using React, React Router, Next.js, Hono, and PostgreSQL.',
+      'Developed browser-extension features with WXT and automated end-to-end tests with Playwright; integrated AWS S3 storage and Firebase Firestore.',
+      'Ship features through code review, testing, and QA across GitHub and Bitbucket workflows; debug production issues and optimize existing systems for performance and maintainability.',
     ],
     badge: 'June 2025 - Present',
     techStack: [
@@ -38,10 +35,6 @@ export const experienceData: experienceDataType[] = [
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/reactrouter/reactrouter-original.svg',
       },
       {
-        name: 'Prisma',
-        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg',
-      },
-      {
         name: 'Hono',
         icon: 'https://hono.dev/images/logo.svg',
       },
@@ -58,6 +51,20 @@ export const experienceData: experienceDataType[] = [
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
       },
       {
+        name: 'AWS S3',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
+        style: { filter: 'invert(100%) sepia(100%) grayscale(100%)' },
+      },
+      {
+        name: 'Firebase',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-original.svg',
+      },
+      {
+        name: 'Github',
+        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg',
+        style: { filter: 'invert(100%) sepia(100%) grayscale(100%)' },
+      },
+      {
         name: 'Bitbucket',
         icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bitbucket/bitbucket-original.svg',
       },
@@ -66,14 +73,13 @@ export const experienceData: experienceDataType[] = [
   {
     windowTitle: 'experience',
     defaultPosition: { x: 800, y: 380 },
-    size: { width: 570, height: 350 },
+    size: { width: 570, height: 325 },
     title: 'Full Stack Software Engineer Intern',
     company: 'Gump (Kachick)',
     description: [
-      'Contributed to full-stack development of an internal web application with existing users.',
-      'Worked remotely with a diverse, multinational, and multicultural team.',
-      'Participated in Agile and ad hoc development cycles, implemented features, and resolved bugs in a production environment.',
-      'Researched and developed proof of concepts for innovations and additions to the existing application.',
+      'Implemented features and resolved bugs in a production environment using NestJS backend APIs, React with MUI, and PostgreSQL.',
+      'Worked fully remote and async with a distributed international team across time zones, using GitHub, Asana, and Slack in Agile development cycles.',
+      'Researched and built proof-of-concepts for an IoT / mobile application.',
     ],
     badge: 'January 2025 - June 2025',
     techStack: [

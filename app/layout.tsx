@@ -14,8 +14,16 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Yoshi',
-  description: 'Portfolio built with Next.js',
+  title: 'Yoshifumi Suzuki | Full Stack Software Engineer',
+  description:
+    'Full Stack Software Engineer (JavaScript/TypeScript) with production experience across React/Next.js frontends, Node.js backends, and PostgreSQL.',
+  openGraph: {
+    title: 'Yoshifumi Suzuki | Full Stack Software Engineer',
+    description:
+      'Full Stack Software Engineer (JavaScript/TypeScript) with production experience across React/Next.js frontends, Node.js backends, and PostgreSQL.',
+    url: 'https://yoshi-xi.vercel.app',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({

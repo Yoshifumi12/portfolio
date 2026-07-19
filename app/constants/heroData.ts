@@ -10,5 +10,5 @@ export const heroData = {
     'https://www.linkedin.com/in/yoshifumi-suzuki-780310264/',
     'mailto:yoshifumisuzuki.ys@gmail.com',
   ],
-  resumeUrl: 'https://drive.google.com/file/d/12jmZ48P1xITUnbGQqG1SWlHasqqFldJj/view?usp=sharing',
+  resumeUrl: 'https://drive.google.com/file/d/1gv42xFhBQ0Fq6R2MOjk59K2yfz9xuNO7/view?usp=sharing',
 }
